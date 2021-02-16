@@ -1,0 +1,21 @@
+#!/bin/bash
+
+file=""
+editor=""
+
+while getopts 'e:f:' flag; do
+  case "${flag}" in
+    e) editor="${OPTARG}" ;;
+    f) file="${OPTARG}" ;;
+    *) print_usage
+       exit 1 ;;
+  esac
+done
+
+echo $editor
+echo $file
+
+mkdir -p -v $(dirname $file) && touch $file
+
+if [ ! "$editor" = "" ]; then $editor $file; fi
+
