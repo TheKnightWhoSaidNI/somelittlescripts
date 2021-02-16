@@ -27,12 +27,12 @@ touchfile () {
         echo The file does not exists, or not visible for you,
         echo and its directory requires root privileges to write in
         echo Please enter your password to proceed:
-        $authenticator sh -c "mkdir -p -v $(dirname $file) && touch $file && $editor $file"
+        "$authenticator" sh -c "mkdir -p -v $(dirname '$file') && touch '$file' && '$editor' '$file'"
         exit 0
     #if first existent parent directory of wanted file is writable by user then no need for authentication
     else
         echo The file does not exist, creating it...
-        mkdir -p -v $(dirname $file) && touch $file
+        mkdir -p -v $(dirname "$file") && touch "$file"
     fi
 }
 
