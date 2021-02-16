@@ -2,7 +2,6 @@
 
 editor="nvim"
 authenticator="doas"
-path_to_dirtouch="dirtouch"
 
 file="$1"
 directory=$(dirname "$file")
@@ -28,13 +27,12 @@ touchfile () {
         echo The file does not exists, or not visible for you,
         echo and its directory requires root privileges to write in
         echo Please enter your password to proceed:
-        $authenticator $path_to_dirtouch -f "$file" -e $editor 
+        $authenticator sh -c "mkdir -p -v $(dirname $file) && touch $file && $editor $file"
         exit 0
     #if first existent parent directory of wanted file is writable by user then no need for authentication
     else
         echo The file does not exist, creating it...
-        $path_to_dirtouch -f "$file" -e $editor 
-        exit 0
+        mkdir -p -v $(dirname $file) && touch $file
     fi
 }
 
