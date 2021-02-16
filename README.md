@@ -11,7 +11,7 @@ smartedit:
     it creates the full path to file and authenticates if needed
 
     what to modify if you want to use it: at the top of the script you can specify your editor to be 
-    used, and your authenticator (defaults are neovim and doas)
+    used, your authenticator, and the path to dirtouch, that you made executable (defaults are neovim doas, and simply dirtouch)
 
     plans: autodetect filetype and use an editor according to that
 
