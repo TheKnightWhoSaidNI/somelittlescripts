@@ -3,7 +3,7 @@ Some little scripts i wrote
 
 smartedit:
     
-    usage: smartedit <path/to/file>
+    usage: smartedit <path/to/file> (<editor> <authenticator>)
 
     description: if the file that you want to edit does not exist, or requires root privileges then
     it creates the full path to file and authenticates if needed
